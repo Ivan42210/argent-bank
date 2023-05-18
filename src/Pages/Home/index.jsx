@@ -1,3 +1,5 @@
+import Features from "../../Components/Features"
+import Hero from "../../Components/Hero"
 
 
 function Home() {
@@ -5,7 +7,8 @@ function Home() {
 
   return (
     <>
-      
+      <Hero />
+      <Features />
     </>
   )
 }
