@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import LoginForm from "../../Components/LoginForm"
 
 export default function LoginPage(){
 
@@ -8,7 +9,7 @@ export default function LoginPage(){
                 <section className="sign-in-content">
                     <FontAwesomeIcon icon={'user-circle'} className="sing-in-icon"></FontAwesomeIcon>
                     <h1>Sign in</h1>
-
+                    <LoginForm />
                 </section>
 
             </main>
