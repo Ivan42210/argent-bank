@@ -19,13 +19,13 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Provider store={store}>
       <Router>
         <Navbar />
-        <main>
+      
         <Routes>
           <Route path='/' element={<Home />}/>
           <Route path='/signin' element={ <LoginPage />}/>
           <Route path='/profile' element={<UserProfile/>}/>
         </Routes>
-        </main>
+    
         <Footer />
       </Router>
     </Provider>
