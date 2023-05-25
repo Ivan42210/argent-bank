@@ -29,10 +29,8 @@ export default function Navbar(){
         }
     }
 
-
-    return(
-        <>
-        <nav className="main-nav">
+    /*
+    <nav className="main-nav">
             <Link className="main-nav-logo" to={'/'}>
                 <img className="main-nav-logo-image" src={logo} alt="Argent Bank Logo" />
                 <h1 className="sr-only">Argent Bank</h1>
@@ -44,6 +42,39 @@ export default function Navbar(){
             </Link>
 
         </nav>
-        </>
+    */ 
+
+    return token && userData.data?(
+       <nav className="main-nav">
+            <Link to={"/"} className="main-nav-logo">
+            <img className="main-nav-logo-image" src={logo} alt="Argent Bank Logo" />
+            <h1 className="sr-only">Argent Bank</h1>
+            </Link>
+            <div>
+                <Link to={"/profile"} className="main-nav-item">
+                    <FontAwesomeIcon icon={'user-circle'}></FontAwesomeIcon>
+                    {userData.data.firstName}
+                </Link>
+                <Link to={"/"} onClick={clearStorage} className="main-nava-item">
+                    <FontAwesomeIcon icon={'sign-out'}></FontAwesomeIcon>
+                    Sign Out
+                </Link>
+            </div>
+       </nav>
+    ) : (
+        <nav className="main-nav">
+        <Link className="main-nav-logo" to={'/'}>
+            <img className="main-nav-logo-image" src={logo} alt="Argent Bank Logo" />
+            <h1 className="sr-only">Argent Bank</h1>
+        </Link>
+
+        <Link className="main-nav-item" to={'/signin'}>
+            <div onClick={remember}> 
+            <FontAwesomeIcon icon={'user-circle'}></FontAwesomeIcon>
+            Sign In
+            </div>
+        </Link>
+
+        </nav>
     )
 }
