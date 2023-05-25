@@ -34,8 +34,13 @@ export default function UserProfile(){
     }
 
     return(
-        <>
-        
-        </>
+        <div className="page-container">
+            <main className="main bg-dark">
+
+                
+
+            </main>
+
+        </div>
     )
 }
