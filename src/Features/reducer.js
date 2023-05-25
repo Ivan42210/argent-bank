@@ -18,7 +18,7 @@ const { actions, reducer } = createSlice({
                 payload: { token },
             }),
 
-            reducer: (state) => {
+            reducer: (state, action) => {
                 if (state.dataStatus === undefined) {
                     return initialState;
                 }
@@ -68,6 +68,30 @@ const { actions, reducer } = createSlice({
                     state.dataStatus = "rejected";
                     state.error = action.payload;
                     state.data = null;
+                    return;
+                }
+            },
+        },
+
+        userTokenFetching: {
+            prepare: (userLogin) => ({
+                payload: { userLogin },
+            }),
+            reducer: (state, action) => {
+                if (state.tokenStatus === undefined) {
+                    return initialState;
+                }
+                if (state.tokenStatus === "void") {
+                    state.tokenStatus = "pending";
+                    return;
+                }
+                if (state.tokenStatus === "rejected") {
+                    state.tokenStatus = "pending";
+                    state.error = null;
+                    return;
+                }
+                if (state.tokenStatus === "resolved") {
+                    state.tokenStatus = "updating";
                     return;
                 }
             },

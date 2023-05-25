@@ -1,8 +1,9 @@
 import { localHost } from "./localHost";
 import axios from "axios";
 import { actions } from "../Features/reducer";
-import LoginForm from "../Components/LoginForm";
+import LoginPage from "../Pages/LoginPage";
 import { selectUser } from "../Features/selector";
+
 
 export function signOut(){
     return (dispatch) => {
@@ -65,7 +66,7 @@ export function fetchUserData(token) {
             return;
         } if(status === "rejected") {
             dispatch(signOut());
-            return <LoginForm />;
+            return <LoginPage />;
         }
 
         dispatch(actions.userDataFetching(token));

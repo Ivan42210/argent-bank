@@ -9,21 +9,25 @@ import LoginPage from './Pages/LoginPage'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import UserProfile from './Pages/Profil'
+import { Provider } from 'react-redux'
+import { store } from './store.js'
 
 library.add(fas)
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
-      <Navbar />
-      <main>
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/signin' element={ <LoginPage />}/>
-        <Route path='/profile/:userName' element={<UserProfile/>}/>
-      </Routes>
-      </main>
-      <Footer />
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <Navbar />
+        <main>
+        <Routes>
+          <Route path='/' element={<Home />}/>
+          <Route path='/signin' element={ <LoginPage />}/>
+          <Route path='/profile' element={<UserProfile/>}/>
+        </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </Provider>
   </React.StrictMode>,
 )
