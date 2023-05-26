@@ -108,7 +108,7 @@ const { actions, reducer } = createSlice({
                 }
                 if (state.tokenStatus === "pending" || state.tokenStatus === "updating") {
                     state.tokenStatus = "resolved";
-                    state.data = action.payload;
+                    state.token = action.payload.token;
                     return;
                 }
             },

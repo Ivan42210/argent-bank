@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import { useEffect } from "react"
 import logo from '../../assets/img/argentBankLogo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useSelector, useDispatch } from "react-redux"
@@ -20,6 +21,7 @@ export default function Navbar(){
         return dispatch(signOut());
     }
 
+
     function remember(){
         if(isRemembered){
             dispatch(fetchUserData(token));
@@ -28,6 +30,12 @@ export default function Navbar(){
             navigate("/signin");
         }
     }
+
+    useEffect(() => {
+        if (token && !userData.data) {
+          dispatch(fetchUserData(token));
+        }
+      }, [dispatch, token, userData.data]);
 
     /*
     <nav className="main-nav">

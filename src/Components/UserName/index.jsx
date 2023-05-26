@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { updateUserData } from "../../Services/actions";
 import { useDispatch } from "react-redux";
+import { PropTypes } from 'prop-types'
+import './UserName.css'
 
 
 export default function UserName({ userData }){
@@ -60,11 +62,11 @@ export default function UserName({ userData }){
                     />
                 </div>
                 <div className="inputChangePart">
-                    <button className="buttonChange" type="submit">
+                    <button className="edit-button btn-change" type="submit">
                         Save
                     </button>
                     <button 
-                        className="buttonChange"
+                        className="edit-button btn-change"
                         type="submit"
                         onClick={(e) => {
                             e.preventDefault(e);
@@ -88,3 +90,13 @@ export default function UserName({ userData }){
         </div>
        );
 }
+
+UserName.propTypes = {
+    userData: PropTypes.shape({
+      data: PropTypes.shape({
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string.isRequired,
+      }).isRequired,
+      token: PropTypes.string,
+    }).isRequired,
+  };
