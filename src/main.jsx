@@ -11,6 +11,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import UserProfile from './Pages/Profil'
 import { Provider } from 'react-redux'
 import { store } from './store.js'
+import Transactions from './Pages/Transactions'
+import ErrorPage from './Pages/Error'
 
 library.add(fas)
 
@@ -21,9 +23,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Navbar />
       
         <Routes>
-          <Route path='/' element={<Home />}/>
+          <Route exact path='/' element={<Home />}/>
           <Route path='/signin' element={ <LoginPage />}/>
           <Route path='/profile' element={<UserProfile/>}/>
+          <Route path='/transactions' element={<Transactions />}/>
+          <Route path='*' element={<ErrorPage />}/>
         </Routes>
     
         <Footer />

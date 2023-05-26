@@ -22,7 +22,7 @@ export default function UserPart({accountTitle, accountAmount, accountBalance}){
             </div>
 
             <div className="account-content-wrapper cta">
-                <Link to={"/transaction"}>
+                <Link to={"/transactions"}>
                     {""}
                     <button
                         className={`transaction-button ${isButtonClicked ? "transaction-button-clicked" : ""}`}

@@ -37,20 +37,7 @@ export default function Navbar(){
         }
       }, [dispatch, token, userData.data]);
 
-    /*
-    <nav className="main-nav">
-            <Link className="main-nav-logo" to={'/'}>
-                <img className="main-nav-logo-image" src={logo} alt="Argent Bank Logo" />
-                <h1 className="sr-only">Argent Bank</h1>
-            </Link>
-
-            <Link className="main-nav-item" to={'/signin'}>
-                <FontAwesomeIcon icon={'user-circle'}></FontAwesomeIcon>
-                Sign In
-            </Link>
-
-        </nav>
-    */ 
+   
 
     return token && userData.data?(
        <nav className="main-nav">
